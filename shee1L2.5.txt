@@ -1,0 +1,47 @@
+#include<iostream>
+#include<string>
+#include<algorithm>
+#include<math.h>
+#include<cmath>
+#include<iomanip>
+#include<bitset>
+
+using namespace std;
+int main(){
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL);
+	int size,n, one = 0,two=0,three=0;
+	string s;
+	cin >> n;
+	while (n--)
+	{
+		one = 0;
+		two = 0;
+		three = 0;
+		cin >> s;
+		size = s.length();
+		if (size == 3)
+		{
+			if (s[0] == 'o')
+				one++;
+			else if (s[0] == 't')
+				two++;
+			if (s[1] == 'n')
+				one++;
+			else if (s[1] == 'w')
+				two++;
+			if (s[2] == 'e')
+				one++;
+			else if (s[2] == 'o')
+				two++;
+			if (one == 3 || one == 2)
+				cout << "1\n";
+			else if (two == 3 || two == 2)
+				cout << "2\n";
+		}
+		else
+			cout << "3\n";
+		
+	}
+	return 0;
+}
