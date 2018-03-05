@@ -1,0 +1,59 @@
+#include<iostream>
+#include<cmath>
+#include<string>
+#include <algorithm>
+#include<math.h>
+using namespace std;
+int main(){
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL);
+	string s;
+	int n; 
+	int a1[6],a2[3];
+	cin >> n;
+	while (n--){
+		int M = 0, R = 0, I = 0, G = 0, A = 0, T = 0;
+		cin >> s;
+		int size = s.length();
+		for (int j = 0; j < size; j++){
+			if (s[j] == 'M')
+				M++;
+			else
+			if (s[j] == 'R')
+				R++;
+			else
+			if (s[j] == 'I'){
+				I++;
+
+			}
+			else
+			if (s[j] == 'G')
+				G++;
+			else
+			if (s[j] == 'A')
+				A++;
+			else
+			if (s[j] == 'T'){
+				T++;
+
+			}
+		}
+		a1[0] = M; 
+		a1[1] = R; 
+		a1[2] = I; 
+		a1[3] = G;
+		a1[4] = A; 
+		a1[5] = T;
+		sort(a1, a1 + 6);
+		a2[0] = a1[0];
+		a2[1] = R / 2;
+		a2[2] = A / 3;
+		sort(a2, a2 + 3);
+		cout << a2[0] << endl;
+
+
+	}
+		//system("pause");
+	return 0;
+
+}
