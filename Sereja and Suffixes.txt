@@ -1,0 +1,37 @@
+#include<iostream>
+#include<string>
+#include<algorithm>
+#include<math.h>
+#include<cmath>
+#include<iomanip>
+#include<bitset>
+
+using namespace std;
+int main(){
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL);
+	bool arr1[1000000] = { 0 };
+	int n, m, arr2[100000], z;
+	cin >> n >> m;
+	for (int i = 0; i<n; i++){
+		cin >> arr2[i];
+	}
+	arr1[arr2[n - 1]] = 1;
+	arr2[n - 1] = 1;
+	for (int i = n - 2; i >= 0; i--){
+		if (arr1[arr2[i]] == 0){
+			arr1[arr2[i]] = 1;
+			arr2[i] = arr2[i + 1] + 1;
+		}
+		else{
+			arr2[i] = arr2[i + 1];
+		}
+	}
+	while (m--){
+		cin >> z;
+		cout << arr2[z - 1] << endl;
+	}
+	system("pause");
+	return 0;
+
+}
