@@ -1,0 +1,47 @@
+#include<iostream>
+#include<cmath>
+#include<string>
+#include <algorithm>
+#include<math.h>
+#include<iomanip>
+#include<bitset>
+#include<queue>
+#include<set>
+using namespace std;
+
+int main(){
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL);
+	string s;
+	char arr[1000000];
+	while (getline(cin, s)){
+		if (s == "DONE")
+			break;
+		bool b = 0;
+		int size = 0;
+		int x = s.length();
+		for (int i = 0; i < x; i++){
+			if (s[i] >= 'A'&&s[i] <= 'Z'){
+				arr[size] = s[i] + 32;
+				size++;
+				continue;
+			}
+			if (s[i] >= 'a'&&s[i] <= 'z'){
+				arr[size] = s[i];
+				size++;
+			}
+		}
+		int i, j;
+		for ( i = 0, j = size - 1; i <= j; i++, j--){
+			if (arr[i] != arr[j])
+				break;
+		}
+		if (i<=j)
+			cout << "Uh oh..\n";
+		else
+			cout << "You won't be eaten!\n";
+	}
+		//system("pause");
+	return 0;
+
+}
