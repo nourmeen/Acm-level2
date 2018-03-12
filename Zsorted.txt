@@ -1,0 +1,69 @@
+#include<iostream>
+#include <stdio.h>
+#include<cmath>
+#include<string>
+#include <algorithm>
+#include<math.h>
+#include<map>
+#include<set>
+#include<vector>
+using namespace std;
+int main(){
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL); cout.tie(0);
+	int num;
+	cin >> num;
+	int *arr = new int[num];
+	for (int i = 0; i < num; i++)
+		cin >> arr[i];
+	sort(arr, arr + num);
+	int *arr1 = new int[num];
+	for (int i = 0, j = num - 1, k = 0; i < num; i++)
+	if (i % 2 == 0){
+		arr1[i] = arr[k];
+		k++;
+	}
+	else
+	{
+		arr1[i] = arr[j];
+		j--;
+	}
+	/*	for (int i = 0; i < num; i++)
+	cout << arr1[i];*/
+	bool chk = true;
+	for (int i = 0; i < num; i++){
+		if (i % 2 == 0)
+		{
+			if (i == 0)
+				continue;
+			else{
+				if (arr1[i] <= arr1[i - 1])
+					chk = true;
+				else{
+					chk = false;
+					break;
+				}
+			}
+		}
+		else
+		{
+			if (i == 1)
+				continue;
+			else{
+				if (arr1[i] >= arr1[i - 1])
+					chk = true;
+				else{
+					chk = false;
+					break;
+				}
+			}
+		}
+	}
+	if (chk)
+	for (int i = 0; i < num; i++)
+		cout << arr1[i] << " ";
+	else
+		cout << "Impossible";
+	return 0;
+
+}
