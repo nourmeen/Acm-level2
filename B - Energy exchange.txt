@@ -1,0 +1,57 @@
+#include<iostream>
+#include <stdio.h>
+#include<cmath>
+#include<string>
+#include <algorithm>
+#include<math.h>
+#include<map>
+#include<set>
+#include<vector>
+using namespace std;
+const double e = 1e-8;
+int N, K;
+int a[10005];
+
+int chec(double s){
+	double f = 0;
+	for (int i = 0; i<N; i++){
+		if (a[i] >= s){
+			f += (a[i] - s)*K / 100;
+		}
+		else {
+			if (a[i] + f<s){
+				return 0;
+			}
+			else f = f + a[i] - s;
+		}
+	}
+	return 1;
+}
+
+bool cmp(int a, int b){
+	return a>b;
+}
+int main(){
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL); cout.tie(0);
+	cin >> N >> K;
+	K = 100 - K;
+	for (int i = 0; i<N; i++){
+		cin >> a[i];
+	}
+	sort(a, a + N, cmp);
+	double l = 0, r = 1000, o;
+
+	while (r - l>e){
+		o = (l + r) / 2;
+		if (chec(o)){
+			l = o;
+		}
+		else{
+			r = o;
+		}
+	}
+	printf("%.7f\n", o);
+	return 0;
+
+}
