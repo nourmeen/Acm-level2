@@ -1,0 +1,40 @@
+#include<iostream>
+#include <stdio.h>
+#include<cmath>
+#include<string>
+#include <algorithm>
+#include<math.h>
+#include<map>
+#include<set>
+#include<vector>
+using namespace std;
+int main(){
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL); cout.tie(0);
+	set<long long >s1, s2;
+	long long z, count = 0; int n, m;
+	while (true){
+		cin >> n >> m;
+		if (n == 0 && m == 0)
+			break;
+		count = 0;
+		while (n--){
+			cin >> z;
+			s1.insert(z);
+		}
+		while (m--){
+			cin >> z;
+			s2.insert(z);
+		}
+		set<long long>::iterator it1, it2;
+		for (it1 = s1.begin(); it1 != s1.end(); it1++){
+			it2 = s2.find(*it1);
+			if (it2 != s2.end())
+				count++;
+		}
+		cout << count << "\n";
+		s1.clear(); s2.clear();
+	}
+	return 0;
+
+}
