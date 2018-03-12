@@ -1,0 +1,48 @@
+#include<iostream>
+#include <stdio.h>
+#include<cmath>
+#include<string>
+#include <algorithm>
+#include<math.h>
+#include<map>
+#include<set>
+#include<vector>
+int n, k, sum;
+bool ok(int v)
+{
+	sum = 0;
+	int l = k;
+	int m = 1;
+	while (v / m>0)
+	{
+
+		sum += v / m;
+		l = k;
+		m *= l;
+	}
+	if (sum >= n)
+		return 1;
+	else
+		return 0;
+}
+using namespace std;
+int main(){
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL); cout.tie(0);
+		cin >> n >> k;
+		int start = 0;
+		int end = n;
+		int mid;
+		while (start<end)
+		{
+			mid = (start + end) / 2;
+
+			if (ok(mid))
+				end = mid;
+			else
+				start = mid + 1;
+		}
+		cout << start;
+	return 0;
+
+}
