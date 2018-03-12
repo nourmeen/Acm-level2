@@ -1,0 +1,39 @@
+#include<iostream>
+#include <stdio.h>
+#include<cmath>
+#include<string>
+#include <algorithm>
+#include<math.h>
+#include<map>
+#include<set>
+#include<vector>
+using namespace std;
+int main(){
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL); cout.tie(0);
+	map<string, int>str;
+	int n, m, x;
+	string s, str;
+	long long sum = 0;
+	cin >> n >> m;
+	while (n--){
+		cin >> s >> x;
+		str[s] = x;
+	}
+	s.clear();
+	while (m--){
+		sum = 0;
+		while (cin >> s){
+			if (s == "."){
+				break;
+			}
+			if (str[s] != 0){
+				sum += str[s];
+			}
+
+		}
+		cout << sum << "\n";
+	}
+	return 0;
+
+}
