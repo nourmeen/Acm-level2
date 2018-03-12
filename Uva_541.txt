@@ -1,0 +1,63 @@
+#include<iostream>
+#include <stdio.h>
+#include<cmath>
+#include<string>
+#include <algorithm>
+#include<math.h>
+#include<map>
+#include<set>
+#include<vector>
+using namespace std;
+int main(){
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL); cout.tie(0);
+	int n, a[110][110], count1 = 0, count2 = 0, row, col;
+	while (true){
+		count1 = 0; count2 = 0;
+		cin >> n;
+		if (n == 0)
+			break;
+		else{
+			for (int i = 0; i < n; i++){
+				for (int j = 0; j < n; j++){
+					cin >> a[i][j];
+				}
+			}
+			int sum = 0;
+			for (int i = 0; i < n; i++){
+				sum = 0;
+				for (int j = 0; j < n; j++){
+					sum += a[i][j];
+				}
+				if (sum % 2 != 0){
+					count1++;
+					row = i;
+				}
+			}
+
+			for (int i = 0; i < n; i++){
+				int sum = 0;
+				for (int j = 0; j < n; j++){
+					sum += a[j][i];
+				}
+				if (sum % 2 != 0){
+					count2++;
+					col = i;
+				}
+			}
+			if (count1 + count2 == 0)
+			{
+				cout << "OK\n";
+			}
+			else if (count1 > 1 || count2 > 1)
+				cout << "Corrupt\n";
+			else
+			if (count1 == count2&&count1 == 1)
+				cout << "Change bit (" << row + 1 << ',' << col + 1 << ")\n";
+
+		}
+
+	}
+	return 0;
+
+}
