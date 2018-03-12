@@ -1,0 +1,30 @@
+#include<iostream>
+#include <stdio.h>
+#include<cmath>
+#include<string>
+#include <algorithm>
+#include<math.h>
+#include<map>
+#include<set>
+#include<vector>
+using namespace std;
+long long arr[2000010];
+int main(){
+	std::ios_base::sync_with_stdio(0);
+	cin.tie(NULL); cout.tie(0);
+	int n;
+	while (cin >> n&&n){
+		for (int i = 0; i < n; i++)
+			cin >> arr[i];
+		sort(arr, arr + n);
+		for (int i = 0; i < n; i++){
+			if (i == n - 1)
+				printf("%llu", arr[i]);
+			else
+				printf("%llu ", arr[i]);
+		}
+		printf("\n");
+	}
+	return 0;
+
+}
